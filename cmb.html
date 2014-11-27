@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Bank simulator</title>
+        <meta charset="UTF-8"/>
+        <script>
+            var send = function(){
+                var url = "http://localhost:8285/paymentservice/rest/cmbpayments/finish";
+                document.getElementById('orderform').action = url;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="submitToCmbChina" style="margin-top:200px;margin-left:600px;" >
+
+            <br/><br/>
+            <form id='orderform' target="_blank" method="POST">
+                content:<input name="content" value='<?xml version="1.0" encoding="ISO8859-1"?><DATA><REQUEST><NCB2BFIN><REQNBR>流程实例号</REQNBR> <MCHNBR>商户编号</MCHNBR><REFORD>409906f4-36f1-5004-ac66-70db8fc1dec5</REFORD><SUBORD>订单支付号</SUBORD><CCYNBR>订单币种</CCYNBR><TRSAMT>订单金额</TRSAMT><ENDAMT>结账金额</ENDAMT><BBKNBR>付方分行号</BBKNBR><PAYACC>付方账号</PAYACC><ACCNAM>付方户名</ACCNAM><YURREF>业务参考号</YURREF><ENDDAT>付款日期</ENDDAT><RTNFLG>业务请求结果</RTNFLG><RTNDSP>结果描述</RTNDSP></NCB2BFIN></REQUEST></DATA>'></input>
+                <br/><br/>
+                signature:<input name="signature" value=""></input><br/><br/>
+
+                <input type="submit"  onclick="send()" value="模拟银行提交到paymentservice" style="width:200px;height:50px;" >
+                    
+                </input>
+            </form>
+        </div>
+    </body>
+</html>
