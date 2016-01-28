@@ -3,26 +3,42 @@
         <title>Bank simulator</title>
         <meta charset="UTF-8"/>
         <script>
+
+            var change = function(){
+                var documentid = document.getElementById('documentid').value;
+                var area = document.getElementById('orderform').textContent;
+                var xml = '<?xml version="1.0" encoding="ISO8859-1"?><DATA><REQUEST><NCB2BFIN><REQNBR>流程实例号</REQNBR> <MCHNBR>商户编号</MCHNBR><REFORD>{{documentid}}</REFORD><SUBORD>订单支付号</SUBORD><CCYNBR>订单币种</CCYNBR><TRSAMT>订单金额</TRSAMT><ENDAMT>结账金额</ENDAMT><BBKNBR>付方分行号</BBKNBR><PAYACC>付方账号</PAYACC><ACCNAM>付方户名</ACCNAM><YURREF>业务参考号</YURREF><ENDDAT>付款日期</ENDDAT><RTNFLG>业务请求结果</RTNFLG><RTNDSP>结果描述</RTNDSP></NCB2BFIN></REQUEST></DATA>';
+                document.getElementById('content').textContent = xml.replace("{{documentid}}", documentid);
+            }
+
             var send = function(){
-                var url = "http://localhost:8285/paymentservice/rest/cmbpayments/finish";
+                var url = document.getElementById('proxyserviceurl').value;
                 document.getElementById('orderform').action = url;
             }
         </script>
     </head>
 
     <body>
-        <div id="submitToCmbChina" style="margin-top:200px;margin-left:600px;" >
-
+        <div id="submitToCmbChina" style="margin-top:50px;margin-left:450px;">
+            <img style="width:400px;height:100px;background-size: 200px auto;" src="http://pic.sosucai.com/b/2009_12/b_32_CDR_20091209204956.jpg"/>
+        </div>
+        <div id="submitToCmbChina" style="margin-top:30px;margin-left:300px;">
+            <h1>招商企业银行支付回调模拟器</h1>
+            proxy service url:<input style="width:600px" id="proxyserviceurl" name="proxyserviceurl" value="http://localhost:8964/tradeshift-china-payment/rest/external/chinapayments/cmb/documents/finish"></input>
+            <br/><br/>
+            <textarea rows="10" cols="80" id="content" name="content" form="orderform"></textarea>
             <br/><br/>
             <form id='orderform' target="_blank" method="POST">
-                content:<input name="content" value='<?xml version="1.0" encoding="ISO8859-1"?><DATA><REQUEST><NCB2BFIN><REQNBR>流程实例号</REQNBR> <MCHNBR>商户编号</MCHNBR><REFORD>409906f4-36f1-5004-ac66-70db8fc1dec5</REFORD><SUBORD>订单支付号</SUBORD><CCYNBR>订单币种</CCYNBR><TRSAMT>订单金额</TRSAMT><ENDAMT>结账金额</ENDAMT><BBKNBR>付方分行号</BBKNBR><PAYACC>付方账号</PAYACC><ACCNAM>付方户名</ACCNAM><YURREF>业务参考号</YURREF><ENDDAT>付款日期</ENDDAT><RTNFLG>业务请求结果</RTNFLG><RTNDSP>结果描述</RTNDSP></NCB2BFIN></REQUEST></DATA>'></input>
-                <br/><br/>
-                signature:<input name="signature" value=""></input><br/><br/>
+                documentid:<input style="width:600px" id="documentid" name="documentid" onchange="change()" value="409906f4-36f1-5004-ac66-70db8fc1dec5"></input><br/><br/>
+                signature:<input name="signature" style="width:600px" value=""></input><br/><br/>
 
                 <input type="submit"  onclick="send()" value="模拟银行提交到paymentservice" style="width:200px;height:50px;" >
-                    
                 </input>
             </form>
         </div>
     </body>
+
+    <script>
+        change();
+    </script>
 </html>
