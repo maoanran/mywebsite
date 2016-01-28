@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tradeshift - Game</title>
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+    <div class="winners">
+        人生赢家
+    </div>
+    <div id="list">
+        <ul class="win">
+        </ul>
+    </div>
+
+    <audio id="dingdang" controls="controls" autoplay loop>
+        <source src="asset/dingdingdangdang.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag. use firefox or chrome
+    </audio>
+</div>
+<div id="wraper" class="view-choose">
+    <div class="html5_video fixed">
+        <video src="http://jschyz.github.io/video/cloud.mp4" loop="" autoplay=""></video>
+    </div>
+
+    <div class="content fixed">
+        <div class="person-box" id="person-box">
+            <div>
+                <img src="asset/hou.jpg" alt="">
+                <h1 class="person-name">
+                    &emsp;
+                </h1>
+            </div>
+        </div>
+
+        <div class="tac btn-box">
+            <button class="btn btn-l" id="btnChooseGame" data-obj-name="choose">start</button>
+            <button class="btn btn-l" id="btnRestart" data-obj-name="choose">restart</button>
+        </div>
+
+
+        <div class="selected-box">
+            <div id="selected-result" class="selected-result">
+            </div>
+        </div>
+    </div>
+
+    <img style="border-radius: 5%;display: inline-block; right:0; bottom:0; height: 350px; padding: 0 100px 100px 0 "  class="fixed"  src="http://images.takungpao.com/2013/0718/20130718044305427.jpg"/>
+</div>
+
+<script src="jquery.min.js"></script>
+<!-- 本地储存 -->
+<script src="lib/store.min.js"></script>
+<!-- 参与人员信息 -->
+<script src="data.js"></script>
+<!-- 公共 -->
+<script src="common.js"></script>
+<!-- 抽人逻辑 -->
+<script src="choose.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 app.use('', express.static(__dirname + '/index'));
+app.use('/lottery', express.static(__dirname + '/lottery'));
 app.use('/css', express.static(__dirname + '/index/css'));
 app.use('/img', express.static(__dirname + '/index/img'));
 app.use('/fonts', express.static(__dirname + '/index/fonts'));
