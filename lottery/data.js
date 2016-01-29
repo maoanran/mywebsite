@@ -101,5 +101,20 @@ window.employees = [
 	}, {
 		name: "Joe",
 		img: "Joe.png"
+	}, {
+		name: "Gert",
+		img: "Gert.png"
+	}, {
+		name: "HeinRich",
+		img: "HeinRich.png"
+	}, {
+		name: "Mikkle",
+		img: "Mikkle.png"
+	}, {
+		name: "Peter",
+		img: "Peter.png"
+	}, {
+		name: "Stephanie",
+		img: "Stephanie.png"
 	}
 ];
