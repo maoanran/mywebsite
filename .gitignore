@@ -1,1 +1,8 @@
-node_modules
+node_modules/
+*.iml
+*.log
+.DS_Store
+.grunt
+public/css/
+*.zip
+.idea
