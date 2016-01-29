@@ -92,5 +92,6 @@ document.getElementById("btnRestart").addEventListener("click", function () {
         }
     }
     $("#selected-result").html("");
+    $("#person-box").html('<div><img src="asset/hou.jpg" alt=""><h1 class="person-name">&emsp;</h1></div>');
     chooseList = [];
 });
