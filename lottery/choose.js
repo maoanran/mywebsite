@@ -42,7 +42,7 @@ function flushWinner() {
         var img = 'asset/' + winnerList[i].split(":")[1];
         result += '<li ><div class="inline"><img width="64" src="' + img + '"></div>\
             <div class="inline win-name">' + name + '</div>\
-            <div class="inline win-del"><button title="删除" class="icon icon-delete" onclick="deleteWinner(\'' + winnerList[i] +'\')' + '"></button></div>\
+            <div class="inline win-del"><button title="delete" class="icon icon-delete" onclick="deleteWinner(\'' + winnerList[i] +'\')' + '"></button></div>\
             </li>';
     }
     result += '</ul>';
@@ -61,10 +61,10 @@ eleRunBtn.addEventListener("click", function () {
     if (timer) {
         clearInterval(timer);
         timer = null;
-        eleRunBtn.innerText = "开始";
+        eleRunBtn.innerText = "start";
         realIndex = getRandomIndex();
         if (realIndex === false) {
-            alert("都抽过了!");
+            alert("no one else!");
             return false;
         }
         realPerson = employees[realIndex];
@@ -76,7 +76,7 @@ eleRunBtn.addEventListener("click", function () {
     }
 
     // 暂停状态下，即开始
-    eleRunBtn.innerText = "暂停";
+    eleRunBtn.innerText = "stop";
     timer = setInterval(function () {
         ran = random(employees.length - 1);
         renderPerson(employees[ran], elePerson);

@@ -6,7 +6,7 @@ window.def = {
 
 window.employees = [
 	def, {
-		name: "Beryal",
+		name: "Beryl",
 		img: "Beryal.png"
 	}, {
 		name: "Edgar",
